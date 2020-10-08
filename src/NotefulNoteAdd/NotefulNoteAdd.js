@@ -9,14 +9,25 @@ class NotefulNoteAdd extends Component {
         addNote: () => { },
       }
 
+      getFolderList = () => {
+        console.log(this.context)
+        let arr = this.context.folders.map(folder => {
+          return 
+        })
+        return 
+      }
+
       getNoteDetails = (form) => {
         const n = new FormData(form)
         let name = n.get("noteName")
         let content = n.get("noteContent")
+        let date = new Date().toString()
+        let foldId = 
+        console.log(this.getFolderList())
         if (typeof name !== "string" || name.length <= 0) return;
         // const folder = {name:name}
         // console.log(folder)
-        this.handleSubmit({name:name}, {content:content})
+        this.handleSubmit({name:name, content:content, modified:date})
     
       }
       handleSubmit = (data) => {
@@ -41,11 +52,14 @@ class NotefulNoteAdd extends Component {
                 <form
                 className={['Noteful-form', className].join(' ')}
                 onSubmit={(e) => {
-                    // e.preventDefault();
+                    e.preventDefault();
                     this.getNoteDetails(e.target)
 
                 }}
             >
+              <select name="folderName" id="folderName">
+
+              </select>
                 <input type="text" id="noteName" name="noteName" aria-label="noteName" placeholder="New Note" required />
                 <textarea type="text" id="noteContent" name="noteContent" placeholder="Note Content Here" required />
                 <button type="submit">Submit</button>
