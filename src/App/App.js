@@ -9,6 +9,7 @@ import NotefulFolderForm from '../NotefulFolderForm/NotefulFolderForm'
 import ApiContext from '../ApiContext';
 import config from '../config';
 import './App.css';
+import NotefulNoteAdd from '../NotefulNoteAdd/NotefulNoteAdd';
 
 class App extends Component {
     state = {
@@ -75,6 +76,7 @@ class App extends Component {
                 ))}
                 <Route path="/note/:noteId" component={NotePageMain} />
                 <Route path="/add-folder" component={NotefulFolderForm} />
+                <Route path="/add-note" component={NotefulNoteAdd} />
             </>
         );
     }
