@@ -5,7 +5,7 @@ import NoteListNav from '../NoteListNav/NoteListNav';
 import NotePageNav from '../NotePageNav/NotePageNav';
 import NoteListMain from '../NoteListMain/NoteListMain';
 import NotePageMain from '../NotePageMain/NotePageMain';
-import NotefulFolderForm from '../NotefulFolderForm/NotefulFolderForm'
+import NotefulFolderForm from '../NotefulFolderForm/NotefulFolderForm';
 import ApiContext from '../ApiContext';
 import config from '../config';
 import './App.css';
@@ -14,7 +14,8 @@ import NotefulNoteAdd from '../NotefulNoteAdd/NotefulNoteAdd';
 class App extends Component {
     state = {
         notes: [],
-        folders: []
+        folders: [],
+        url: 'http://localhost:3000'
     };
 
     componentDidMount() {
@@ -30,8 +31,8 @@ class App extends Component {
 
                 return Promise.all([notesRes.json(), foldersRes.json()]);
             })
-            .then(([notes, folders]) => {
-                this.setState({notes, folders});
+            .then(([notes, folders, url]) => {
+                this.setState({notes, folders, url});
             })
             .catch(error => {
                 console.error({error});
@@ -85,6 +86,7 @@ class App extends Component {
         const value = {
             notes: this.state.notes,
             folders: this.state.folders,
+            url: this.state.url,
             deleteNote: this.handleDeleteNote
         };
         return (

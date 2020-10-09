@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import './NotefulFolderForm.css'
 import ApiContext from '../ApiContext'
-import CircleButton from '../CircleButton/CircleButton'
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import config from '../config';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom'
-//import { Route } from 'react-router-dom';
 
-class NotefuFolderForm extends Component {
+
+class NotefulFolderForm extends Component {
   static contextType = ApiContext
   static defaultProps = {
     addFolder: () => { },
@@ -47,40 +42,17 @@ class NotefuFolderForm extends Component {
         console.error({ error })
       })
     }
- /* -----------------------------
-    handleClickDelete = e => {
-      e.preventDefault()
-      const noteId = this.props.id
-  
-      fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
-        method: 'DELETE',
-        headers: {
-          'content-type': 'application/json'
-        },
-      })
-        .then(res => {
-          if (!res.ok)
-            return res.json().then(e => Promise.reject(e))
-          return res.json()
-        })
-        .then(() => {
-          this.context.deleteNote(noteId)
-          // allow parent to perform extra behaviour
-          this.props.onDeleteNote(noteId)
-        })
-        .catch(error => {
-          console.error({ error })
-        })
-    }
-  -------*/
+
 
   render() {
     const { className } = this.context
     return (
-      <main>
-        <form
-          className={['Noteful-form', className].join(' ')}
-          onSubmit={(e) => {
+      
+      <div>
+
+          <form
+            className={['Noteful-form', className].join(' ')}
+            onSubmit={(e) => {
               e.preventDefault();
               this.getFolderName(e.target)}}
         >
@@ -88,9 +60,10 @@ class NotefuFolderForm extends Component {
             <button type="submit">Submit</button>
           
         </form>
-      </main>
+
+      </div>
     )
   }
 }
 
-export default NotefuFolderForm;
+export default NotefulFolderForm;
