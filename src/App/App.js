@@ -5,11 +5,11 @@ import NoteListNav from '../NoteListNav/NoteListNav';
 import NotePageNav from '../NotePageNav/NotePageNav';
 import NoteListMain from '../NoteListMain/NoteListMain';
 import NotePageMain from '../NotePageMain/NotePageMain';
-import NotefulFolderForm from '../NotefulFolderForm/NotefulFolderForm';
+import AddFolder from '../AddFolder/AddFolder';
 import ApiContext from '../ApiContext';
 import config from '../config';
 import './App.css';
-import NotefulNoteAdd from '../NotefulNoteAdd/NotefulNoteAdd';
+import AddNote from '../AddNote/AddNote';
 
 class App extends Component {
     state = {
@@ -76,8 +76,8 @@ class App extends Component {
                     />
                 ))}
                 <Route path="/note/:noteId" component={NotePageMain} />
-                <Route path="/add-folder" component={NotefulFolderForm} />
-                <Route path="/add-note" component={NotefulNoteAdd} />
+                <Route path="/add-folder" component={AddFolder} />
+                <Route path="/add-note" component={AddNote} />
             </>
         );
     }

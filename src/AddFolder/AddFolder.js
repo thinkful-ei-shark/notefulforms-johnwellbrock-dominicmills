@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import './NotefulFolderForm.css'
+import './AddFolder.css'
 import ApiContext from '../ApiContext'
 import config from '../config';
+import PropTypes from 'prop-types';
 
 
-class NotefulFolderForm extends Component {
+class AddFolder extends Component {
   static contextType = ApiContext
   static defaultProps = {
     addFolder: () => { },
@@ -66,4 +67,8 @@ class NotefulFolderForm extends Component {
   }
 }
 
-export default NotefulFolderForm;
+AddFolder.propTypes = {
+  store: PropTypes.object.isRequired
+}
+
+export default AddFolder;

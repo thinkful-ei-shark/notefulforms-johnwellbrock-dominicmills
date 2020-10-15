@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ApiContext from '../ApiContext'
 import config from '../config';
+import PropTypes from 'prop-types';
 
 
-
-class NotefulNoteAdd extends Component {
+class AddNote extends Component {
     static contextType = ApiContext
     static defaultProps = {
         addNote: () => { },
@@ -80,4 +80,8 @@ class NotefulNoteAdd extends Component {
     }
 }
  
-export default NotefulNoteAdd;
+AddNote.propTypes = {
+  store: PropTypes.object.isRequired
+}
+
+export default AddNote;
